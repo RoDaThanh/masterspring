@@ -40,6 +40,17 @@ public class Student {
     public void setBooks(Set<Book> books) {
         this.books = books;
     }
+
+    //create to string method
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", books=" + books +
+                '}';
+    }
+
 }
 
 
