@@ -7,7 +7,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-import java.net.URL;
 import java.util.List;
 
 /**
