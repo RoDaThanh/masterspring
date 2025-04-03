@@ -16,6 +16,17 @@ public class Student {
     @JoinColumn(name = "student_id")
     private Set<Book> books = new HashSet<Book>();
 
+    public Student() {}
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public Student(String name, Set<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
+
 
     public Long getId() {
         return id;

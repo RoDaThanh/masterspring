@@ -2,6 +2,7 @@ package handson;
 
 import handson.model.Book;
 import handson.model.Student;
+import handson.service.StudentService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -19,27 +20,8 @@ public class App {
         try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
             EntityTransaction entityTransaction = entityManager.getTransaction();
 
-            Book book1 = new Book();
-            book1.setTitle("Book 1");
-            Book book2 = new Book();
-            book2.setTitle("Book 2");
-            Student student = new Student();
-            student.setName("Student 1");
-
-            student.getBooks().add(book1);
-            student.getBooks().add(book2);
-
-            // persist student and book
-            try {
-                entityTransaction.begin();
-                entityManager.persist(student);
-                entityTransaction.commit();
-            } catch (RuntimeException e) {
-                if (entityTransaction.isActive()) {
-                    entityTransaction.rollback();
-                }
-                throw e;
-            }
+            StudentService studentService = new StudentService();
+            studentService.insertStudentWithBooks(entityManager, "Student 1", "Book 1", "Book 2");
 
             //  Find, Update, and Delete Entities
             try {

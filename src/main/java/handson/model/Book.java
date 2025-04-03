@@ -12,6 +12,13 @@ public class Book {
     private Long id;
     private String title;
 
+    public Book (String title) {
+        this.title = title;
+    }
+
+    public Book () {
+    }
+
 
     public Long getId() {
         return id;
