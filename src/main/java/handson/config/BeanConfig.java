@@ -1,14 +1,11 @@
 package handson.config;
 
-import jakarta.persistence.EntityManagerFactory;
+import handson.dao.StudentDaoJpaImpl;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -45,4 +42,11 @@ public class BeanConfig {
         jpaPropertiesMap.put("hibernate.format_sql", "true");
         return jpaPropertiesMap;
     }
+
+    @Bean
+    public StudentDaoJpaImpl studentDao() {
+        return new StudentDaoJpaImpl();
+    }
+
+
 }
