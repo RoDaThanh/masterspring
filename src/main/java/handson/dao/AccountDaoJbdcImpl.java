@@ -1,6 +1,5 @@
 package handson.dao;
 
-import handson.config.DBconnection;
 import handson.model.Account;
 
 import java.sql.*;
@@ -31,11 +30,6 @@ public class AccountDaoJbdcImpl implements AccountDao {
                 throw new RuntimeException(e);
             }
             throw new RuntimeException(e);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException ignored) {
-            }
         }
     }
 
